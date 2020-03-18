@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:ASOCLaViga"
+             Title="Home"
+             x:Class="ASOCLaViga.MasterPage"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ImageButton Source="icon_user.png" Grid.Column="0" Grid.RowSpan="2" Clicked="ImageButton_Clicked"/>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="Large" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span x:Name="labelNombre" Text="{Binding nombre}"/>
+                            <Span Text=" "/>
+                            <Span x:Name="labelApellido" Text="{Binding apellido}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="Genius de nivel 2" FontAttributes="Bold" TextColor="Blue"/>
+            </Grid>
+            <BoxView BackgroundColor="Blue" HeightRequest="1"/>
+            <ListView x:Name="listView" x:FieldModifier="public" ItemSelected="listView_ItemSelected"
+                          SeparatorVisibility="Default">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type local:MasterPageItem}">
+                        <local:MasterPageItem Title="Bus" IconSource="icon_bus.png" TargetType="{x:Type local:PageBus}"/>
+                        <local:MasterPageItem Title="Actividades" IconSource="icon_act.png" TargetType="{x:Type local:PageAct}" />
+                        <local:MasterPageItem Title="Contacto" IconSource="icon_contact.png" TargetType="{x:Type local:PageContact}" />
+                        <local:MasterPageItem Title="Cerrar sesion" IconSource="icon_logout.png" TargetType="{x:Type local:PageOut}" />
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding IconSource}" />
+                                <Label Grid.Column="1" Text="{Binding Title}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
