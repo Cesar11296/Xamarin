@@ -10,11 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace ASOCLaViga
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageIndex : ContentPage
+    public partial class PageIndex : TabbedPage
     {
         public PageIndex()
         {
             InitializeComponent();
+            BarBackgroundColor = Color.MediumPurple;
+            BarTextColor = Color.White;
         }
     }
 }

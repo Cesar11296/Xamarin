@@ -7,9 +7,26 @@
              x:Class="ASOCLaViga.PageContact">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Personas de contacto"
+                   FontSize="Large"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Frame BackgroundColor="MediumPurple">
+                <StackLayout>
+                    <Label Text="El Javi" 
+                       FontSize="Body"
+                       TextColor="White"
+                       VerticalOptions="Start" 
+                       HorizontalOptions="StartAndExpand"/>
+                    <Image Source="definitivo2.png"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

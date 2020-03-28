@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,20 +18,20 @@ namespace ASOCLaViga
         public MasterPage()
         {
             InitializeComponent();
-            carga();
         }
 
         protected override async void OnAppearing()
         {
+            //https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetPeopleAsync();
-        }
-
-        private void carga()
-        {
-            u = new User { nombre = "Cesar", apellido = "Redondo", email = "redondogomezcesar", pais = "España", telefono = "601220994" };
-            labelNombre.Text = u.nombre;
-            labelApellido.Text = u.apellido;
+            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
+            var db = new SQLiteConnection(databasePath);
+            var list = db.Query<User>("SELECT DISTINCT * FROM User where Name = ?", "Cesar");
+            foreach (User us in list)
+            {
+                labelNombre.Text = us.Name;
+                labelApellido.Text = us.Apellido;
+            }
         }
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -38,8 +40,8 @@ namespace ASOCLaViga
             string op = item.Title;
             switch (op)
             {
-                case "Bus":
-                    Navigation.PushModalAsync(new PageBus());
+                case "Actas":
+                    Navigation.PushModalAsync(new PageActas());
                     break;
                 case "Actividades":
                     Navigation.PushModalAsync(new PageAct());
@@ -60,7 +62,8 @@ namespace ASOCLaViga
             bool answer = await DisplayAlert("Cerrar sesión", "¿Deseas salir?", "Si", "No");
             if (answer)
             {
-                u = null;
+                labelNombre.Text = "";
+                labelApellido.Text = "";
             }
         }
 

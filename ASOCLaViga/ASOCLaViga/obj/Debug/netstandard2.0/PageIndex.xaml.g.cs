@@ -14,7 +14,7 @@ namespace ASOCLaViga {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("PageIndex.xaml")]
-    public partial class PageIndex : global::Xamarin.Forms.ContentPage {
+    public partial class PageIndex : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {

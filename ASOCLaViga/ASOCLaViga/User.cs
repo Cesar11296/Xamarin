@@ -7,12 +7,11 @@ namespace ASOCLaViga
 {
     public class User
     {
-        public class Person
-        {
-            [PrimaryKey, AutoIncrement]
-            public string Name { get; set; }
-            public string Apellido { get; set; }
-            public string DNI { get; set; }
-        }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Apellido { get; set; }
+        public string DNI { get; set; }
+
     }
 }

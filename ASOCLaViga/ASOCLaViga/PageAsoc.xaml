@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageAsoc">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="ASOC LA VIGA"
+                   FontSize="Large"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Frame BackgroundColor="MediumPurple">
+                <StackLayout>
+                    <Label Text="Asociación juvenil creada para dar vida y cabida a la juventud del pueblo de Montemayor de Pililla.
+                       &#10;&#10;Y para dar por culo al Ayuntamiento!"
+                       FontSize="Body"
+                       TextColor="White"
+                       VerticalOptions="Start" 
+                       HorizontalOptions="StartAndExpand"/>
+                    <Image Source="logo_viga.jpg"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

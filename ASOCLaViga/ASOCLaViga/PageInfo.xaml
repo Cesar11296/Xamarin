@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageInfo">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Montemayor de Pililla"
+                   FontSize="Large"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Frame BackgroundColor="MediumPurple">
+                <StackLayout>
+                    <Label Text="Situado en el sur de la provincia de Valladolid, en la comunidad autónoma de Castilla y León.
+                       &#10;Enclavado en la comarca natural de la Tierra de Pinares. 
+                       &#10;Sus fiestas mayores comienzan el día 13 de septiembre, se celebra la Exaltación de la Santa Cruz, y acaban el día 18." 
+                       FontSize="Body"
+                       TextColor="White"
+                       VerticalOptions="Start" 
+                       HorizontalOptions="StartAndExpand"/>
+                    <Image Source="definitivo2.png"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
