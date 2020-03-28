@@ -15,7 +15,7 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageIndex.x
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageAct.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageContact.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageOut.xaml.g.cs
-C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageAsoc.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageInfo.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActas.xaml.g.cs
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp

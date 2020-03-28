@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,7 @@ namespace ASOCLaViga
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        private User u;
+        
         public MasterPage()
         {
             InitializeComponent();
@@ -24,6 +25,34 @@ namespace ASOCLaViga
         {
             //https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
             base.OnAppearing();
+            string connectionString = "datasource=127.0.0.1;user id=root;password=;database=asoc;";
+            
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            Console.WriteLine("No se encontro nada");
+            MySqlDataReader reader = null; ;
+            String data = null;
+            try
+            {
+                string query = "SELECT * FROM `user` WHERE `Name`='Cesar'";
+                MySqlCommand command = new MySqlCommand(query);
+                command.Connection = databaseConnection;
+                databaseConnection.Open();
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    data += reader.GetString(1);
+                    labelNombre.Text = data;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                labelNombre.Text = "error";
+            }
+            finally
+            {
+                databaseConnection.Close();
+            }
+            /*
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
             var db = new SQLiteConnection(databasePath);
             var list = db.Query<User>("SELECT DISTINCT * FROM User where Name = ?", "Cesar");
@@ -31,7 +60,7 @@ namespace ASOCLaViga
             {
                 labelNombre.Text = us.Name;
                 labelApellido.Text = us.Apellido;
-            }
+            }*/
         }
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
