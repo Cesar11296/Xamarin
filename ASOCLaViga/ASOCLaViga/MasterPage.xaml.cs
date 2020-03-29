@@ -26,15 +26,33 @@ namespace ASOCLaViga
             //https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
             base.OnAppearing();
 
-            string error;
-            MySQLconn conn = new MySQLconn("root", "");
-            if(conn.TryConnection(out error))
+            string connstr = @"server=127.0.0.1;database=asoc;userid=root;password=";
+            MySqlConnection conn = null;
+            MySqlDataReader rdr = null;
+            String data = null;
+            try
             {
-                labelNombre.Text = "Conexion exitosa";
+                string stm = "SELECT * FROM `user` WHERE `Name`='Cesar'";
+                conn = new MySqlConnection(connstr);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = stm;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    data += reader.GetString(1);
+                    labelNombre.Text = data;
+                }
             }
-            else
+            catch (MySqlException ex)
             {
-                labelNombre.Text = "Error: " +error;
+                labelNombre.Text = "failed" + ex.ToString();
+            }
+            finally
+            {
+                if (rdr != null) { rdr.Close(); }
+                if (conn != null) { conn.Close(); }
             }
 
 
