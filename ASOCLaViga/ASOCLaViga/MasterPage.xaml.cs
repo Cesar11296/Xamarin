@@ -25,7 +25,20 @@ namespace ASOCLaViga
         {
             //https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
             base.OnAppearing();
-            string connectionString = "datasource=127.0.0.1;user id=root;password=;database=asoc;";
+
+            string error;
+            MySQLconn conn = new MySQLconn("root", "");
+            if(conn.TryConnection(out error))
+            {
+                labelNombre.Text = "Conexion exitosa";
+            }
+            else
+            {
+                labelNombre.Text = "Error: " +error;
+            }
+
+
+            /*string connectionString = "datasource=127.0.0.1;user id=root;password=;database=asoc;";
             
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             Console.WriteLine("No se encontro nada");
@@ -52,7 +65,7 @@ namespace ASOCLaViga
             {
                 databaseConnection.Close();
             }
-            /*
+            
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
             var db = new SQLiteConnection(databasePath);
             var list = db.Query<User>("SELECT DISTINCT * FROM User where Name = ?", "Cesar");
