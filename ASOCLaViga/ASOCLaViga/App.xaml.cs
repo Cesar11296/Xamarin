@@ -25,7 +25,7 @@ namespace ASOCLaViga
         public App()
         {
             InitializeComponent();
-            /*
+            
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.CreateTable<Actividad>();
@@ -53,10 +53,10 @@ namespace ASOCLaViga
             });
             db.Insert(new Actividad
             {
-                Titulo = "Visita al Generalisimo",
-                Lugar = "Valle de los caidos",
-                Descripccion = "Visita al difunto Cofran",
-                Foto = "valle.jpg",
+                Titulo = "Esquí en Xanadu",
+                Lugar = "Madrid",
+                Descripccion = "Diviertete en esta escapada al Xanadu de Madrid",
+                Foto = "xanadu.jpg",
                 bus = true,
                 Precio = 20,
                 Fecha = new DateTime(1939, 6, 12),
@@ -82,7 +82,7 @@ namespace ASOCLaViga
                 DNI = "71178102W",
                 pass = "12345",
                 type = 1
-            });*/
+            });
             MainPage = new MainPage();
         }
 

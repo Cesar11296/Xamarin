@@ -550,4 +550,4 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\stamp\SetupDepe
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\segador_ruta.jpg
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\hontana_act.jpg
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\kache.jpg
-C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\valle.jpg
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\xanadu.jpg

@@ -5829,7 +5829,7 @@ namespace ASOCLaViga.Droid
 			public const int tooltip_frame_light = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int valle = 2131165313;
+			public const int xanadu = 2131165313;
 			
 			static Drawable()
 			{

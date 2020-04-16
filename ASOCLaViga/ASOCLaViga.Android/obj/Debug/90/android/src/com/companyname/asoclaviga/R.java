@@ -4571,7 +4571,7 @@ public final class R {
     public static final int segador_ruta=0x7f07007e;
     public static final int tooltip_frame_dark=0x7f07007f;
     public static final int tooltip_frame_light=0x7f070080;
-    public static final int valle=0x7f070081;
+    public static final int xanadu=0x7f070081;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
