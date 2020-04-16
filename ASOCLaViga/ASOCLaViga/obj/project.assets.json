@@ -107,6 +107,18 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Rg.Plugins.Popup/1.1.4.145-pre": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.121934"
+        },
+        "compile": {
+          "lib/netstandard1.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "runtime.native.System/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1364,6 +1376,35 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Rg.Plugins.Popup/1.1.4.145-pre": {
+      "sha512": "iTbZOqJ9bexIaKw9ueYElq0issYAGep0vQNCmdNTt4PQB6RkF8mbREQUVpcR37rpl32gXVj+OgChwf1w1Tf/sg==",
+      "type": "package",
+      "path": "rg.plugins.popup/1.1.4.145-pre",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/Rg.Plugins.Popup.Droid.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.Droid.pdb",
+        "lib/MonoAndroid/Rg.Plugins.Popup.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.pdb",
+        "lib/MonoTouch/Rg.Plugins.Popup.IOS.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.IOS.pdb",
+        "lib/MonoTouch/Rg.Plugins.Popup.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.pdb",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.IOS.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.IOS.pdb",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.pdb",
+        "lib/netstandard1.0/Rg.Plugins.Popup.dll",
+        "lib/netstandard1.0/Rg.Plugins.Popup.pdb",
+        "lib/uap10.0/Rg.Plugins.Popup.UWP.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.UWP.pdb",
+        "lib/uap10.0/Rg.Plugins.Popup.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.pdb",
+        "rg.plugins.popup.1.1.4.145-pre.nupkg.sha512",
+        "rg.plugins.popup.nuspec"
       ]
     },
     "runtime.native.System/4.0.0": {
@@ -4749,6 +4790,7 @@
     ".NETStandard,Version=v2.0": [
       "MySql.Data >= 8.0.19",
       "NETStandard.Library >= 2.0.3",
+      "Rg.Plugins.Popup >= 1.1.4.145-pre",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.3.0.908675",
       "sqlite-net-pcl >= 1.6.292"
@@ -4807,6 +4849,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Rg.Plugins.Popup": {
+            "target": "Package",
+            "version": "[1.1.4.145-pre, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

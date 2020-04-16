@@ -29,17 +29,17 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Grid.Row="1" Grid.Column="1" Text="Genius de nivel 2" FontAttributes="Bold" TextColor="Blue"/>
+                <Label x:Name="labelTipoUser" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" TextColor="Blue"/>
             </Grid>
             <BoxView BackgroundColor="Blue" HeightRequest="1"/>
             <ListView x:Name="listView" x:FieldModifier="public" ItemSelected="listView_ItemSelected"
-                          SeparatorVisibility="Default">
+                          SeparatorVisibility="Default"  IsPullToRefreshEnabled="true">
                 <ListView.ItemsSource>
-                    <x:Array Type="{x:Type local:MasterPageItem}">
+                    <x:Array x:Name="ArrayBarra" Type="{x:Type local:MasterPageItem}">
                         <local:MasterPageItem Title="Actas" IconSource="icon_actas.png" TargetType="{x:Type local:PageActas}"/>
                         <local:MasterPageItem Title="Actividades" IconSource="icon_act.png" TargetType="{x:Type local:PageAct}" />
                         <local:MasterPageItem Title="Contacto" IconSource="icon_contact.png" TargetType="{x:Type local:PageContact}" />
-                        <local:MasterPageItem Title="Cerrar sesion" IconSource="icon_logout.png" TargetType="{x:Type local:PageOut}" />
+                        <local:MasterPageItem Title="Iniciar sesion" IconSource="icon_logout.png" TargetType="{x:Type local:PageLog}" />
                     </x:Array>
                 </ListView.ItemsSource>
                 <ListView.ItemTemplate>

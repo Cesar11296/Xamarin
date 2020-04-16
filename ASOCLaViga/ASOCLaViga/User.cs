@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ASOCLaViga
 {
@@ -12,6 +13,7 @@ namespace ASOCLaViga
         public string Name { get; set; }
         public string Apellido { get; set; }
         public string DNI { get; set; }
-
+        public string pass { get; set; }
+        public int type { get; set; }
     }
 }

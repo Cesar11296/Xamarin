@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace ASOCLaViga
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageAct : ContentPage
+    public partial class PageAct : TabbedPage
     {
         public PageAct()
         {

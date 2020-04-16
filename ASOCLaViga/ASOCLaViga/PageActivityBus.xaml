@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageActivityBus">
+    <ContentPage.Content>
+        <ListView x:Name="listView" HasUnevenRows="True" ItemSelected="listView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="imgLocationBus" Source="{Binding Foto}" VerticalOptions="FillAndExpand"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Titulo}" x:Name="labelTituloBus" XAlign="Center" YAlign="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Lugar}" x:Name="labelLugarBus" XAlign="Center" YAlign="Center" TextColor="Black" FontAttributes="Bold"/>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

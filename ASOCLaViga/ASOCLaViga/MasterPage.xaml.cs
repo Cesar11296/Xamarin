@@ -9,95 +9,53 @@ using MySql.Data.MySqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Reflection;
 
 namespace ASOCLaViga
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        
+        public SQLiteConnection db;
+        private User u;
+
+
         public MasterPage()
         {
             InitializeComponent();
+            this.u = App.u;
         }
 
         protected override async void OnAppearing()
         {
-            //https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
             base.OnAppearing();
-
-            string connstr = @"server=127.0.0.1;database=asoc;userid=root;password=";
-            MySqlConnection conn = null;
-            MySqlDataReader rdr = null;
-            String data = null;
-            try
+            if (this.u != null)
             {
-                string stm = "SELECT * FROM `user` WHERE `Name`='Cesar'";
-                conn = new MySqlConnection(connstr);
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = stm;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                labelNombre.Text = u.Name;
+                labelApellido.Text = u.Apellido;
+                if (this.u.type == 1)
                 {
-                    data += reader.GetString(1);
-                    labelNombre.Text = data;
-                }
-            }
-            catch (MySqlException ex)
-            {
-                labelNombre.Text = "failed" + ex.ToString();
-            }
-            finally
-            {
-                if (rdr != null) { rdr.Close(); }
-                if (conn != null) { conn.Close(); }
-            }
-
-
-            /*string connectionString = "datasource=127.0.0.1;user id=root;password=;database=asoc;";
-            
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            Console.WriteLine("No se encontro nada");
-            MySqlDataReader reader = null; ;
-            String data = null;
-            try
-            {
-                string query = "SELECT * FROM `user` WHERE `Name`='Cesar'";
-                MySqlCommand command = new MySqlCommand(query);
-                command.Connection = databaseConnection;
-                databaseConnection.Open();
-                reader = command.ExecuteReader();
-                while (reader.Read())
+                    labelTipoUser.Text = "Usuario Administrador";
+                }else if (this.u.type == 0)
                 {
-                    data += reader.GetString(1);
-                    labelNombre.Text = data;
+                    labelTipoUser.Text = "Usuario básico";
                 }
+                else
+                {
+                    labelTipoUser.Text = "";
+                }
+                    MasterPageItem m = new MasterPageItem();
+                m.Title = "Cerrar sesion";
+                m.IconSource = "icon_logout.png";
+                ArrayBarra.SetValue(m, 3);
             }
-            catch (MySqlException ex)
-            {
-                labelNombre.Text = "error";
-            }
-            finally
-            {
-                databaseConnection.Close();
-            }
-            
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
-            var db = new SQLiteConnection(databasePath);
-            var list = db.Query<User>("SELECT DISTINCT * FROM User where Name = ?", "Cesar");
-            foreach (User us in list)
-            {
-                labelNombre.Text = us.Name;
-                labelApellido.Text = us.Apellido;
-            }*/
         }
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterPageItem;
             string op = item.Title;
+
             switch (op)
             {
                 case "Actas":
@@ -108,6 +66,9 @@ namespace ASOCLaViga
                     break;
                 case "Contacto":
                     Navigation.PushModalAsync(new PageContact());
+                    break;
+                case "Iniciar sesion":
+                    Navigation.PushModalAsync(new PageLog());
                     break;
                 case "Cerrar sesion":
                     OnAlert();
@@ -124,13 +85,21 @@ namespace ASOCLaViga
             {
                 labelNombre.Text = "";
                 labelApellido.Text = "";
+                labelTipoUser.Text = "";
+                u = null;
+            }
+            else
+            {
+                Navigation.PushModalAsync(new MainPage());
             }
         }
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            PageOut p = new PageOut();
-            Navigation.PushModalAsync(p);
+            if (this.u != null)
+            {
+                Navigation.PushAsync(new PageUser());
+            }
         }
     }
 }

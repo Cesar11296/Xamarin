@@ -18,9 +18,6 @@ namespace ASOCLaViga
         public MainPage()
         {
             InitializeComponent();
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MySQLite.db3");
-            var db = new SQLiteConnection(databasePath);
-            
         }
     }
 }

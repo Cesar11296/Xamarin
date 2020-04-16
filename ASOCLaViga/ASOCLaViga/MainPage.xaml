@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:local="clr-namespace:ASOCLaViga"
+             xmlns:local="clr-namespace:ASOCLaViga" 
              x:Class="ASOCLaViga.MainPage">
     <MasterDetailPage.Master>
         <local:MasterPage x:Name="pageBarra"/>

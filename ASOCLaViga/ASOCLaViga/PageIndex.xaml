@@ -7,6 +7,6 @@
              xmlns:local="clr-namespace:ASOCLaViga"
              x:Class="ASOCLaViga.PageIndex"
              NavigationPage.HasNavigationBar="True">
-    <local:PageAsoc Title="Asociación" IconImageSource="icon_hotel.png"/>
-    <local:PageInfo Title="Nuestro pueblo" IconImageSource="icon_car.png"/>
+    <local:PageAsoc Title="Asociación"/>
+    <local:PageInfo Title="Nuestro pueblo"/>
 </TabbedPage>

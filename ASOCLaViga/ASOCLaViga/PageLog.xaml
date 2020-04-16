@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageLog">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Personas de contacto"
+                   FontSize="Large"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout BackgroundColor="MediumPurple">
+                <StackLayout Padding="20" Scale="1">
+                    <Grid BackgroundColor="Yellow" RowSpacing="10" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Entry BackgroundColor="White" x:Name="entryDNI" 
+                               Placeholder="Introduce tu DNI" 
+                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                               Margin="5,5,5,0"/>
+                        <Entry BackgroundColor="White" x:Name="entryPass"
+                               IsPassword="True"
+                               Placeholder="Introduce tu contraseña" 
+                               Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
+                               Margin="5,5,5,5"/>
+                    </Grid>
+                    <StackLayout HeightRequest="30"/>
+                    <Button BackgroundColor="Blue" TextColor="White" 
+                            Text="Login" CornerRadius="20" 
+                            HorizontalOptions="Center" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
