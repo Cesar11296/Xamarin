@@ -25,7 +25,7 @@ namespace ASOCLaViga
         public App()
         {
             InitializeComponent();
-            
+            /*
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.CreateTable<Actividad>();
@@ -79,10 +79,44 @@ namespace ASOCLaViga
             {
                 Name = "Javier",
                 Apellido = "Garcia Criado",
-                DNI = "71178102W",
+                DNI = "71178102X",
                 pass = "12345",
                 type = 1
             });
+            db.Insert(new User
+            {
+                Name = "Cesar",
+                Apellido = "Redondo Gomez",
+                DNI = "71178102W",
+                pass = "12345",
+                type = 0
+            });
+            db.CreateTable<Apuntado>();
+            db.Insert(new Apuntado
+            {
+                IDUser = 1,
+                IDAct = 2
+            });
+            db.Insert(new Apuntado
+            {
+                IDUser = 1,
+                IDAct = 3
+            });
+            db.Insert(new Apuntado
+            {
+                IDUser = 2,
+                IDAct = 4
+            });
+            db.Insert(new Apuntado
+            {
+                IDUser = 2,
+                IDAct = 3
+            });*/
+            //Javier - Gymkana
+            //Javier - Xanadu
+            //Cesar - Kache
+            //Cesar - Xanadu
+            //INSERT INTO `apuntado` (`ID`, `IDUser`, `IDAct`) VALUES (NULL, '2', '1'); 
             MainPage = new MainPage();
         }
 

@@ -12,8 +12,9 @@
                     <On Platform="Android" Value="Purple"/>
                 </OnPlatform>
             </StackLayout.BackgroundColor>
-            <Label Text="Personas de contacto"
-                   FontSize="Large"
+            <Label Text="Acceso"
+                   FontSize="40"
+                   FontAttributes="Bold"
                    TextColor="White"
                    VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand"/>
@@ -21,26 +22,75 @@
                 <StackLayout Padding="20" Scale="1">
                     <Grid BackgroundColor="Yellow" RowSpacing="10" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Entry BackgroundColor="White" x:Name="entryDNI" 
+                               FontSize="24"
                                Placeholder="Introduce tu DNI" 
-                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
-                               Margin="5,5,5,0"/>
+                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                               Margin="5,5,5,0"
+                               TextChanged="entry_TextChanged"/>
                         <Entry BackgroundColor="White" x:Name="entryPass"
+                               FontSize="24"
                                IsPassword="True"
                                Placeholder="Introduce tu contraseña" 
-                               Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
-                               Margin="5,5,5,5"/>
+                               Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                               Margin="5,5,5,5"
+                               TextChanged="entry_TextChanged"/>
+                        <Switch x:Name="swPass"
+                            Grid.Row="2" Grid.Column="0" 
+                            IsToggled="False"
+                            Toggled="swPass_Toggled"
+                            VerticalOptions="Start"/>
+                        <Label FontSize="24" 
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Center"
+                           Grid.Row="2" Grid.Column="1">    
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={Reference swPass}, Path=IsToggled}"
+                                 Value="False">
+                                    <Setter Property="Text" Value="Mostrar Contraseña"/>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={Reference swPass}, Path=IsToggled}"
+                                 Value="True">
+                                    <Setter Property="Text" Value="Ocultar Contraseña"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
                     </Grid>
                     <StackLayout HeightRequest="30"/>
-                    <Button BackgroundColor="Blue" TextColor="White" 
-                            Text="Login" CornerRadius="20" 
-                            HorizontalOptions="Center" Clicked="Button_Clicked"/>
+                    <Button x:Name="bLogin" TextColor="White" WidthRequest="150"
+                            Text="Login" CornerRadius="20" FontSize="24"
+                            HorizontalOptions="Center" Clicked="Button_Clicked">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="ValidationStates">
+                                <VisualState Name="Normal" >
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="LightBlue"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="Valido" >
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Blue"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="NoValido">
+                                    <VisualState.Setters>
+                                        <Setter Property="IsEnabled" Value="False" />
+                                        <Setter Property="BackgroundColor" Value="LightBlue"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

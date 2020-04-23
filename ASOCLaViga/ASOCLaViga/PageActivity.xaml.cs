@@ -25,7 +25,12 @@ namespace ASOCLaViga
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            if (e.SelectedItem != null)
+            {
+                PageActivityDetail p = new PageActivityDetail();
+                p.BindingContext = e.SelectedItem;
+                Navigation.PushModalAsync(p);
+            }
         }
     }
 }

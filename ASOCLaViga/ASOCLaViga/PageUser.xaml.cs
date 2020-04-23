@@ -38,5 +38,10 @@ namespace ASOCLaViga
                 }
             }
         }
+
+        private void bShowAct_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new ShowActivities());
+        }
     }
 }

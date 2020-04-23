@@ -27,7 +27,7 @@ namespace ASOCLaViga
         {
             if (e.SelectedItem != null)
             {
-                PageActivityBusDetail pBus = new PageActivityBusDetail();
+                PageActivityDetail pBus = new PageActivityDetail();
                 pBus.BindingContext = e.SelectedItem;
                 Navigation.PushModalAsync(pBus);
             }

@@ -98,7 +98,7 @@ namespace ASOCLaViga
         {
             if (this.u != null)
             {
-                Navigation.PushAsync(new PageUser());
+                Navigation.PushModalAsync(new PageUser());
             }
         }
     }

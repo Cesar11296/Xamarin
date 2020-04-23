@@ -47,6 +47,12 @@
                        HorizontalOptions="StartAndExpand"/>
                 </StackLayout>
             </Frame>
+            <StackLayout HeightRequest="30"/>
+            <Button x:Name="bShowAct" Text="Ver tus actividades" 
+                    Clicked="bShowAct_Clicked" TextColor="White"
+                    BackgroundColor="PaleVioletRed"
+                    WidthRequest="200" CornerRadius="20" 
+                    FontSize="24" HorizontalOptions="Center"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

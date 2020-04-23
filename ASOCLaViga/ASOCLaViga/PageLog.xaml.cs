@@ -15,6 +15,7 @@ namespace ASOCLaViga
     public partial class PageLog : ContentPage
     {
         public List<User> u;
+        bool bDNI, bPass;
 
         public PageLog()
         {
@@ -25,6 +26,23 @@ namespace ASOCLaViga
         {
             InitializeComponent();
             this.u = u;
+            Validar();
+        }
+
+        private void entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Entry texto = (Entry)sender;
+            if (texto.FindByName("entryDNI").Equals(sender))
+                bDNI = (entryDNI.Text.Length > 0);
+            else if (texto.FindByName("entryPass").Equals(sender))
+                bPass = (entryPass.Text != string.Empty) && (entryPass.Text.Length > 4);
+            Validar();
+        }
+
+        private void Validar()
+        {
+            string visualState = (bDNI && bPass) ? "Valido" : "NoValido";
+            VisualStateManager.GoToState(bLogin, visualState);
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -40,11 +58,19 @@ namespace ASOCLaViga
                     App.u = us;
                     Navigation.PushModalAsync(new MainPage());
                 }
-                else
+                else if (us.DNI != entryDNI.Text)
                 {
-                    DisplayAlert("Error", "Usuario no encontrado", "OK");
+                    var message = "Usuario incorrecto";
+                    DependencyService.Get<IMessage>().LongTime(message);
+                    entryDNI.Text = "";
+                    entryPass.Text = "";
                 }
             }
+        }
+
+        private void swPass_Toggled(object sender, ToggledEventArgs e)
+        {
+            entryPass.IsPassword = !swPass.IsToggled;
         }
 
     }
