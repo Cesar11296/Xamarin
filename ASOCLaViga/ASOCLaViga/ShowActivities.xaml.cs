@@ -21,6 +21,8 @@ namespace ASOCLaViga
             var db = new SQLiteConnection(databasePath);
             List<Actividad> list = db.Query<Actividad>("SELECT * FROM actividad INNER JOIN apuntado ON apuntado.IDAct = actividad.ID INNER JOIN user ON user.ID = apuntado.IDUser WHERE user.DNI = ? ", App.u.DNI);
             lw_Act.ItemsSource = list;
+            // dateEntrada.Date.ToString("ddd, dd MMMM"),
+
         }
     }
 }

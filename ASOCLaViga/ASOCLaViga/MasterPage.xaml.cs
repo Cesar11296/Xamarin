@@ -36,7 +36,13 @@ namespace ASOCLaViga
                 if (this.u.type == 1)
                 {
                     labelTipoUser.Text = "Usuario Administrador";
-                }else if (this.u.type == 0)
+                    MasterPageItem x = new MasterPageItem();
+                    x.Title = "Gestion";
+                    x.IconSource = "icon_gestion.png";
+                    ArrayBarra.SetValue(x, 2);
+
+                }
+                else if (this.u.type == 0)
                 {
                     labelTipoUser.Text = "Usuario básico";
                 }
@@ -44,7 +50,7 @@ namespace ASOCLaViga
                 {
                     labelTipoUser.Text = "";
                 }
-                    MasterPageItem m = new MasterPageItem();
+                MasterPageItem m = new MasterPageItem();
                 m.Title = "Cerrar sesion";
                 m.IconSource = "icon_logout.png";
                 ArrayBarra.SetValue(m, 3);
@@ -67,6 +73,9 @@ namespace ASOCLaViga
                 case "Contacto":
                     Navigation.PushModalAsync(new PageContact());
                     break;
+                case "Gestion":
+                    Navigation.PushModalAsync(new PageGestion());
+                    break;
                 case "Iniciar sesion":
                     Navigation.PushModalAsync(new PageLog());
                     break;
@@ -83,13 +92,12 @@ namespace ASOCLaViga
             bool answer = await DisplayAlert("Cerrar sesión", "¿Deseas salir?", "Si", "No");
             if (answer)
             {
+                MasterPageItem m = new MasterPageItem();
                 labelNombre.Text = "";
                 labelApellido.Text = "";
                 labelTipoUser.Text = "";
                 u = null;
-            }
-            else
-            {
+                App.u = null;
                 Navigation.PushModalAsync(new MainPage());
             }
         }

@@ -24,3 +24,6 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActivit
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActivityDetail.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\ShowActivities.xaml.g.cs
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageGestion.xaml.g.cs
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageGestionAct.xaml.g.cs
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageGestionUser.xaml.g.cs
