@@ -42,6 +42,12 @@
     <EmbeddedResource Update="PageAsoc.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="PageChangeUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PageCreateUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="PageContact.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -78,6 +84,9 @@
   <ItemGroup>
     <Compile Update="PageActivityDetail.xaml.cs">
       <DependentUpon>PageActivityDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PageCreateUser.xaml.cs">
+      <DependentUpon>PageCreateUser.xaml</DependentUpon>
     </Compile>
     <Compile Update="PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>

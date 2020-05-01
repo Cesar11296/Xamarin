@@ -8,6 +8,4 @@
              x:Class="ASOCLaViga.PageGestion">
     <local:PageGestionAct Title="Actividades y Salidas" IconImageSource="icon_act.png"/>
     <local:PageGestionUser Title="Usuarios" IconImageSource="icon_user.png"/>
-        <!--https://stackoverflow.com/questions/55350643/how-to-add-checkbox-in-listview-using-xamarin-forms
-    -->
 </TabbedPage>

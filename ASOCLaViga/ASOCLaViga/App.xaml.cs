@@ -25,7 +25,7 @@ namespace ASOCLaViga
         public App()
         {
             InitializeComponent();
-            /*
+           /* 
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.CreateTable<Actividad>();
@@ -88,6 +88,14 @@ namespace ASOCLaViga
                 Name = "Cesar",
                 Apellido = "Redondo Gomez",
                 DNI = "71178102W",
+                pass = "12345",
+                type = 0
+            });
+            db.Insert(new User
+            {
+                Name = "Paco",
+                Apellido = "Osuna",
+                DNI = "1234567H",
                 pass = "12345",
                 type = 0
             });

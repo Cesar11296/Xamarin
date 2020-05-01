@@ -5,11 +5,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ASOCLaViga.PageGestionUser">
+    <NavigationPage.TitleView>
+        <Label x:Name="labelNavegacion" Text="Volver"/>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Usuarios"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Padding="10" Scale="1">
+                <Frame BackgroundColor="LightBlue">
+                    <ListView x:Name="lw_AdminUser" SelectionMode="Single" ItemSelected="lw_AdminUser_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:Name="textoData">
+                                <TextCell Text="{Binding Name}"
+                                    Detail="{Binding DNI}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </StackLayout>
+            <StackLayout HeightRequest="30"/>
+            <Button x:Name="bAdd" TextColor="White" WidthRequest="250"
+                    Text="Añadir Usuarios" CornerRadius="20" FontSize="24"
+                    HorizontalOptions="Center" Clicked="bAdd_Clicked"
+                    BackgroundColor="ForestGreen">
+            </Button>
+            <StackLayout HeightRequest="30"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

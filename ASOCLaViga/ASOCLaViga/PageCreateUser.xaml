@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageCreateUser">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label x:Name="labelTitle" Text="Crear"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout HeightRequest="10"/>
+            <Frame Padding="20" Scale="1" BackgroundColor="MediumPurple" CornerRadius="10">
+                <Grid BackgroundColor="MediumPurple" RowSpacing="10" ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryName" 
+                           FontSize="24" TextColor="White"
+                           Placeholder="Nombre" PlaceholderColor="White"
+                           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                           Margin="5,5,5,0"
+                           TextChanged="entry_TextChanged"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryApellidos"
+                           FontSize="24" TextColor="White"
+                           Placeholder="Apellido\s" PlaceholderColor="White"
+                           Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                           Margin="5,5,5,5"
+                           TextChanged="entry_TextChanged"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryDNI"
+                           FontSize="24" TextColor="White"
+                           Placeholder="DNI" PlaceholderColor="White"
+                           Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" 
+                           Margin="5,5,5,5"
+                           TextChanged="entry_TextChanged"/>
+                    <Picker BackgroundColor="MediumPurple" x:Name="pickerType"
+                            FontSize="24" TextColor="White"
+                            Title="Tipo de usuario" TitleColor="White"
+                            Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                            Margin="5,5,5,5"
+                            SelectedIndexChanged="pickerType_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Administrador</x:String>
+                                <x:String>Básico</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+
+            </Frame>
+            <StackLayout HeightRequest="30"/>
+            <Button x:Name="bAdd" TextColor="White" WidthRequest="150"
+                            Text="Crear" CornerRadius="20" FontSize="24"
+                            HorizontalOptions="Center" Clicked="bAdd_Clicked">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="ValidationStates">
+                        <VisualState Name="Normal" >
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="LightBlue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Valido" >
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="NoValido">
+                            <VisualState.Setters>
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="BackgroundColor" Value="LightBlue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
