@@ -8,5 +8,6 @@ namespace ASOCLaViga
     {
         void LongTime(string message);
         void ShortTime(string message);
+        void Up(string message);
     }
 }

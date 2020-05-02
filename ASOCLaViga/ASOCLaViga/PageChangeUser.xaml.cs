@@ -29,7 +29,7 @@ namespace ASOCLaViga
             {
                 tipo = "Administrador";
             }
-            else if (us.type == 1)
+            else if (us.type == 0)
             {
                 tipo = "Básico";
             }
@@ -59,7 +59,7 @@ namespace ASOCLaViga
             entryDNI.Text,
             pickerType.Title,
                 usuario.DNI);
-            Navigation.PushModalAsync(new MainPage());
+            Navigation.PopModalAsync();
         }
     }
 }

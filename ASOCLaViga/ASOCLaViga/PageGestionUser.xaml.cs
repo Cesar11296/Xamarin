@@ -20,6 +20,19 @@ namespace ASOCLaViga
             LoadList();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadList();
+            lw_AdminUser.SelectedItem = null;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            OnAppearing();
+        }
+
         private void LoadList()
         {
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
@@ -30,7 +43,9 @@ namespace ASOCLaViga
 
         private void lw_AdminUser_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            OnAlert(e);
+            if (e.SelectedItem != null) {
+                OnAlert(e);
+            }
         }
 
         async void OnAlert(SelectedItemChangedEventArgs e)

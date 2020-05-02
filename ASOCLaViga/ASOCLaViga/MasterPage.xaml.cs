@@ -29,6 +29,7 @@ namespace ASOCLaViga
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            listView.SelectedItem = null;
             if (this.u != null)
             {
                 labelNombre.Text = u.Name;
@@ -59,31 +60,34 @@ namespace ASOCLaViga
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MasterPageItem;
-            string op = item.Title;
-
-            switch (op)
+            if (e.SelectedItem != null)
             {
-                case "Actas":
-                    Navigation.PushModalAsync(new PageActas());
-                    break;
-                case "Actividades":
-                    Navigation.PushModalAsync(new PageAct());
-                    break;
-                case "Contacto":
-                    Navigation.PushModalAsync(new PageContact());
-                    break;
-                case "Gestion":
-                    Navigation.PushModalAsync(new PageGestion());
-                    break;
-                case "Iniciar sesion":
-                    Navigation.PushModalAsync(new PageLog());
-                    break;
-                case "Cerrar sesion":
-                    OnAlert();
-                    break;
-                default:
-                    break;
+                var item = e.SelectedItem as MasterPageItem;
+                string op = item.Title;
+
+                switch (op)
+                {
+                    case "Actas":
+                        Navigation.PushModalAsync(new PageActas());
+                        break;
+                    case "Actividades":
+                        Navigation.PushModalAsync(new PageAct());
+                        break;
+                    case "Contacto":
+                        Navigation.PushModalAsync(new PageContact());
+                        break;
+                    case "Gestion":
+                        Navigation.PushModalAsync(new PageGestion());
+                        break;
+                    case "Iniciar sesion":
+                        Navigation.PushModalAsync(new PageLog());
+                        break;
+                    case "Cerrar sesion":
+                        OnAlert();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

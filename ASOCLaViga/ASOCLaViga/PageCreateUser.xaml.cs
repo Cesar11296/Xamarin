@@ -45,7 +45,7 @@ namespace ASOCLaViga
                     pass = "12345",
                     type = opt
                 });
-                Navigation.PushModalAsync(new MainPage());
+                Navigation.PopModalAsync();
             }
         }
 

@@ -23,7 +23,7 @@
                    HorizontalOptions="CenterAndExpand"/>
             <StackLayout Padding="20" Scale="1">
                 <Frame BackgroundColor="LightBlue">
-                    <ListView x:Name="lw_Act" SelectionMode="None">
+                    <ListView x:Name="lw_Act" SelectionMode="Single" ItemSelected="lw_Act_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate x:Name="textoData">
                                 <TextCell Text="{Binding Titulo}"

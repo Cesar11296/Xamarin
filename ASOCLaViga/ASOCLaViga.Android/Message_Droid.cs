@@ -24,7 +24,14 @@ namespace ASOCLaViga.Droid
 
         public void ShortTime(string message)
         {
-            Toast.MakeText(Android.App.Application.Context, message, ToastLength.Short).Show();
+           Toast.MakeText(Android.App.Application.Context, message, ToastLength.Short).Show();
+        }
+
+        public void Up(string message)
+        {
+            Toast t = Toast.MakeText(Android.App.Application.Context, message, ToastLength.Long);
+            t.SetGravity(GravityFlags.Top | GravityFlags.Center, 0, 0);
+            t.Show();
         }
     }
 }

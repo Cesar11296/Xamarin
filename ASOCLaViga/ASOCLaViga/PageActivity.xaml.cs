@@ -23,6 +23,12 @@ namespace ASOCLaViga
             listView.ItemsSource = act;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            listView.SelectedItem = null;
+        }
+
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)

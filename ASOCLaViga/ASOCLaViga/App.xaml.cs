@@ -25,7 +25,7 @@ namespace ASOCLaViga
         public App()
         {
             InitializeComponent();
-           /* 
+            /*
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.CreateTable<Actividad>();
