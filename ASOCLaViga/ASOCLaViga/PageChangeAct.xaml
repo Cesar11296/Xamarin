@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ASOCLaViga.PageChangeAct">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label x:Name="labelTitle" Text="Modificar Actividad"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Frame Padding="20" Scale="1" BackgroundColor="MediumPurple" CornerRadius="10">
+                <Grid BackgroundColor="MediumPurple" RowSpacing="10" ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Titulo:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="0"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryTitulo" 
+                           FontSize="18" TextColor="White" VerticalOptions="End"
+                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                           Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Lugar:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="1"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryLugar"
+                           FontSize="18" TextColor="White"
+                           Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                           Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Descripcción:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Editor BackgroundColor="MediumPurple" x:Name="editorDescripcion"
+                           FontSize="15" TextColor="White"
+                           Grid.Column="0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3" MaxLength="250"
+                           Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Foto:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="6"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryFoto"
+                           FontSize="18" TextColor="White"
+                           Placeholder="Introduzca URL" PlaceholderColor="White"
+                           Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" 
+                           Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Precio:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="7"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryPrecio"
+                           FontSize="18" TextColor="White" Keyboard="Numeric"
+                           Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" 
+                           Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Bus:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="8"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Picker BackgroundColor="MediumPurple" x:Name="pickerBus"
+                            FontSize="18" TextColor="White"
+                            Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"
+                            Margin="0,-10,0,0" TitleColor="White"
+                            SelectedIndexChanged="pickerBus_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Si</x:String>
+                                <x:String>No</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Fecha:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="9"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <DatePicker BackgroundColor="MediumPurple" x:Name="fechaAct"
+                                FontSize="18" TextColor="White"
+                                Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" 
+                                Margin="0,-10,0,0"/>
+                    <Label BackgroundColor="MediumPurple"  
+                           Text="Plazas:" FontSize="22" TextColor="White" 
+                           Grid.Column="0" Grid.Row="10"
+                           VerticalTextAlignment="Start"
+                           Margin="0,0,0,0"/>
+                    <Entry BackgroundColor="MediumPurple" x:Name="entryPlazas"
+                           FontSize="18" TextColor="White" Keyboard="Numeric"
+                           Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2" 
+                           Margin="0,-10,0,0"/>
+                </Grid>
+            </Frame>
+            <StackLayout HeightRequest="20"/>
+            <Button x:Name="bChange" TextColor="White" WidthRequest="150"
+                    Text="Modificar" CornerRadius="20" FontSize="24"
+                    BackgroundColor="Blue"
+                    HorizontalOptions="Center" Clicked="bChange_Clicked">
+            </Button>
+            <StackLayout HeightRequest="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

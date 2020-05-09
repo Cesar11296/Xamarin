@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using SQLite.Net.Platform.XamarinAndroid;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ASOCLaViga.Droid
 {

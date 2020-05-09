@@ -564,5 +564,5 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\android\assets\
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\android\assets\System.Resources.ResourceManager.dll
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\android\assets\System.Runtime.Serialization.Primitives.dll
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\android\assets\System.Xml.XDocument.dll
-C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\res\drawable\icon_gestion.png
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga.Android\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp

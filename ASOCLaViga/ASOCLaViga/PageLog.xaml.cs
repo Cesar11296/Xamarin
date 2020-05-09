@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ASOCLaViga
 {

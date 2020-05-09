@@ -24,8 +24,8 @@ namespace ASOCLaViga
 
         public App()
         {
-            InitializeComponent();
             /*
+            InitializeComponent();
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.CreateTable<Actividad>();
@@ -35,8 +35,8 @@ namespace ASOCLaViga
                 Lugar = "Montemayor de Pililla",
                 Descripccion = "Tradicional ruta del segador a través del valle de Valcorba.",
                 Foto = "segador_ruta.jpg",
-                bus = false,
-                Precio = 15.5,
+                bus = "No",
+                Precio = 15.5m,
                 Fecha = new DateTime(2020, 5, 12),
                 Plazas = 60
             }) ;
@@ -46,8 +46,8 @@ namespace ASOCLaViga
                 Lugar = "Montemayor de Pililla",
                 Descripccion = "Gymkana en nuestro area recreativa La Hontana",
                 Foto = "hontana_act.jpg",
-                bus = false,
-                Precio = 0,
+                bus = "No",
+                Precio = 0m,
                 Fecha = new DateTime(2020, 6, 12),
                 Plazas = 60
             });
@@ -57,8 +57,8 @@ namespace ASOCLaViga
                 Lugar = "Madrid",
                 Descripccion = "Diviertete en esta escapada al Xanadu de Madrid",
                 Foto = "xanadu.jpg",
-                bus = true,
-                Precio = 20,
+                bus = "Si",
+                Precio = 20m,
                 Fecha = new DateTime(1939, 6, 12),
                 Plazas = 55
             });
@@ -68,8 +68,8 @@ namespace ASOCLaViga
                 Lugar = "Arrabal de Portillo",
                 Descripccion = "Liada en el Kache con motivo del final del Covid-19",
                 Foto = "kache.jpg",
-                bus = true,
-                Precio = 3,
+                bus = "Si",
+                Precio = 3m,
                 Fecha = new DateTime(2020, 6, 12),
                 Plazas = 55
             });
@@ -81,7 +81,17 @@ namespace ASOCLaViga
                 Apellido = "Garcia Criado",
                 DNI = "71178102X",
                 pass = "12345",
-                type = 1
+                type = 1,
+                phone = "658412354"
+            });
+            db.Insert(new User
+            {
+                Name = "Elisa",
+                Apellido = "Real",
+                DNI = "71178102R",
+                pass = "12345",
+                type = 1,
+                phone = "658412354"
             });
             db.Insert(new User
             {

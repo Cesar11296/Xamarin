@@ -17,16 +17,18 @@
                    TextColor="White"
                    VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand"/>
-            <Frame BackgroundColor="MediumPurple">
-                <StackLayout>
-                    <Label Text="El Javi" 
-                       FontSize="Body"
-                       TextColor="White"
-                       VerticalOptions="Start" 
-                       HorizontalOptions="StartAndExpand"/>
-                    <Image Source="definitivo2.png"/>
-                </StackLayout>
-            </Frame>
+            <StackLayout Padding="20" Scale="1">
+                <Frame BackgroundColor="LightBlue">
+                    <ListView x:Name="lw_Contact" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:Name="textoData">
+                                <TextCell Text="{Binding Name}"
+                                    Detail="{Binding phone, StringFormat='{}Telefono: {0}'}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

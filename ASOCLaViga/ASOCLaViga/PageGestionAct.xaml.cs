@@ -20,6 +20,18 @@ namespace ASOCLaViga
             LoadList();
             lw_Act.SelectedItem = null;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadList();
+            lw_Act.SelectedItem = null;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            OnAppearing();
+        }
 
         private void LoadList()
         {
@@ -34,7 +46,37 @@ namespace ASOCLaViga
         {
             if (e.SelectedItem != null)
             {
+                OnAlert(e);
             }
+        }
+
+        async void OnAlert(SelectedItemChangedEventArgs e)
+        {
+            try
+            {
+                string answer = await DisplayActionSheet("¿Qué desea hacer?", "Cancel", null, "Modificar", "Eliminar");
+                if (answer.Equals("Modificar"))
+                {
+                    PageChangeAct p = new PageChangeAct((Actividad)e.SelectedItem);
+                    Navigation.PushModalAsync(p);
+                }
+                else if (answer.Equals("Eliminar"))
+                {
+                    var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+                    var db = new SQLiteConnection(databasePath);
+                    db.Delete(e.SelectedItem);
+                    LoadList();
+                }
+            }
+            catch (SystemException ex)
+            {
+                LoadList();
+            }
+        }
+
+        private void bAdd_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new PageCreateAct());
         }
     }
 }

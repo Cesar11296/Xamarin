@@ -33,6 +33,13 @@
                     </ListView>
                 </Frame>
             </StackLayout>
+            <StackLayout HeightRequest="30"/>
+            <Button x:Name="bAdd" TextColor="White" WidthRequest="250"
+                    Text="Añadir Actividad" CornerRadius="20" FontSize="24"
+                    HorizontalOptions="Center" Clicked="bAdd_Clicked"
+                    BackgroundColor="ForestGreen">
+            </Button>
+            <StackLayout HeightRequest="30"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

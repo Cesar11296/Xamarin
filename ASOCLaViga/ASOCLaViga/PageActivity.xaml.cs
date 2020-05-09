@@ -19,7 +19,7 @@ namespace ASOCLaViga
             InitializeComponent();
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
-            List<Actividad> act = db.Query<Actividad>("SELECT * FROM Actividad where bus = false ");
+            List<Actividad> act = db.Query<Actividad>("SELECT * FROM Actividad where bus = ? ", "No");
             listView.ItemsSource = act;
         }
 

@@ -15,5 +15,6 @@ namespace ASOCLaViga
         public string DNI { get; set; }
         public string pass { get; set; }
         public int type { get; set; }
+        public string phone { get; set; }
     }
 }
