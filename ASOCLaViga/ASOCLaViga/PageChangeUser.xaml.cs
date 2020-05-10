@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -46,20 +47,53 @@ namespace ASOCLaViga
 
             if (selectedIndex != -1)
             {
-                pickerType.Title = (string)picker.ItemsSource[selectedIndex];
+                tipo = (string)picker.ItemsSource[selectedIndex];
             }
         }
 
         private void bChange_Clicked(object sender, EventArgs e)
         {
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.Query<User>("UPDATE User SET Name = ?, Apellido = ?, DNI = ?, type = ? where DNI = ?", entryName.Text,
             entryApellidos.Text,
             entryDNI.Text,
             pickerType.Title,
                 usuario.DNI);
-            Navigation.PopModalAsync();
+            Navigation.PopModalAsync();*/
+            doUpdateAsync();
+
+        }
+
+        private async Task doUpdateAsync()
+        {
+            int opt = 2;
+            if (tipo == "Administrador")
+            {
+                opt = 1;
+            }
+            else if (tipo == "Básico")
+            {
+                opt = 0;
+            }
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                await FirebaseHelper.UpdateUser(Convert.ToInt32(usuario.ID), entryName.Text,
+            entryApellidos.Text,
+            entryDNI.Text,
+            opt,
+                usuario.DNI);
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                Navigation.PopModalAsync();
+            }
         }
     }
 }

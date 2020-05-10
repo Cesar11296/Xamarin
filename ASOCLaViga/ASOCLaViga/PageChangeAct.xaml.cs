@@ -49,7 +49,7 @@ namespace ASOCLaViga
 
         private void bChange_Clicked(object sender, EventArgs e)
         {
-            decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
+            /*decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.Query<Actividad>("UPDATE Actividad SET Titulo = ?, Lugar = ?, Descripccion = ?, Foto = ?, bus= ?, Precio = ?, Fecha = ?, Plazas = ? where ID = ?", entryTitulo.Text,
@@ -61,6 +61,20 @@ namespace ASOCLaViga
             fechaAct.Date,
             entryPlazas.Text,
             act.ID);
+            Navigation.PopModalAsync();*/
+            doUpdateAsync();
+        }
+
+        private async Task doUpdateAsync()
+        {
+            decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
+            await FirebaseHelper.UpdateActividad(Convert.ToInt32(act.ID), entryTitulo.Text, entryLugar.Text,
+            editorDescripcion.Text,
+            entryFoto.Text,
+            pickerBus.Title,
+            price,
+            fechaAct.Date,
+            Convert.ToInt32(entryPlazas.Text));
             Navigation.PopModalAsync();
         }
     }

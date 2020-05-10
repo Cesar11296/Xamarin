@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -14,7 +15,7 @@ namespace ASOCLaViga
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageCreateUser : ContentPage
     {
-        string tipo ="";
+        string tipo = "";
         bool eName, eApellido, eDNI, ePicker;
         int opt;
 
@@ -35,7 +36,7 @@ namespace ASOCLaViga
                 {
                     opt = 0;
                 }
-                var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+                /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
                 var db = new SQLiteConnection(databasePath);
                 db.Insert(new User
                 {
@@ -44,7 +45,26 @@ namespace ASOCLaViga
                     DNI = entryDNI.Text,
                     pass = "12345",
                     type = opt
-                });
+                });*/
+                doInsertAsync(opt);
+                
+            }
+        }
+
+        private async Task doInsertAsync(int opt)
+        {
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                await FirebaseHelper.AddUser(entryName.Text, entryApellidos.Text, entryDNI.Text, "12345", opt);
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
                 Navigation.PopModalAsync();
             }
         }

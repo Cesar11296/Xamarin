@@ -34,7 +34,7 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\BouncyCastl
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\Ubiety.Dns.Core.dll
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\Renci.SshNet.dll
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\MySql.Data.xml
-C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\ASOCLaViga.csproj.CopyComplete
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageChangeAct.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageCreateAct.xaml.g.cs
+C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp

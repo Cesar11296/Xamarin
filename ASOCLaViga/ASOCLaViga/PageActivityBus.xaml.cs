@@ -17,10 +17,20 @@ namespace ASOCLaViga
         public PageActivityBus()
         {
             InitializeComponent();
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             List<Actividad> act = db.Query<Actividad>("SELECT * FROM Actividad where bus = ? ", "Si");
-            listView.ItemsSource = act;
+            listView.ItemsSource = act;*/
+            loadListAsync();
+        }
+
+        private async Task loadListAsync()
+        {
+            List<Actividad> list = await FirebaseHelper.GetActivities();
+            var listFilter = from act in list
+                             where (act.bus == "Si")
+                             select act;
+            listView.ItemsSource = listFilter;
         }
 
         protected override void OnAppearing()

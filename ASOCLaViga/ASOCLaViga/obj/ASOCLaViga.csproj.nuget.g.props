@@ -17,7 +17,6 @@
     <Import Project="$(NuGetPackageRoot)entityframework\6.4.0\buildTransitive\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.0\buildTransitive\EntityFramework.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\César\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
     <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\César\.nuget\packages\entityframework\6.4.0</PkgEntityFramework>
   </PropertyGroup>
 </Project>

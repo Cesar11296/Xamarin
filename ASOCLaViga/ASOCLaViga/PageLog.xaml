@@ -70,7 +70,7 @@
                     <StackLayout HeightRequest="30"/>
                     <Button x:Name="bLogin" TextColor="White" WidthRequest="150"
                             Text="Login" CornerRadius="20" FontSize="24"
-                            HorizontalOptions="Center" Clicked="Button_Clicked">
+                            HorizontalOptions="Center" Clicked="bLogin_Clicked">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup Name="ValidationStates">
                                 <VisualState Name="Normal" >

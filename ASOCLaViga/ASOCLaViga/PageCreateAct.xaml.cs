@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -70,7 +71,7 @@ namespace ASOCLaViga
 
         private void bAdd_Clicked(object sender, EventArgs e)
         {
-            decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
+            /*decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
             var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             db.Insert(new Actividad
@@ -84,8 +85,27 @@ namespace ASOCLaViga
                 Fecha = fechaAct.Date,
                 Plazas = Int32.Parse(entryPlazas.Text)
             });
-            Navigation.PopModalAsync();
+            Navigation.PopModalAsync();*/
+            addValueAsync();
+        }
 
+        private async Task addValueAsync()
+        {
+            decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                await FirebaseHelper.AddActividad(entryTitulo.Text, entryLugar.Text, editorDescripcion.Text, entryFoto.Text, pickerBus.Title, price, fechaAct.Date, Int32.Parse(entryPlazas.Text));
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                Navigation.PopModalAsync();
+            }
         }
     }
 }

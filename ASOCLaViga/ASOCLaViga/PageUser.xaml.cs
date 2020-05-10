@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -60,16 +61,36 @@ namespace ASOCLaViga
                         DependencyService.Get<IMessage>().Up(message);
                     }
                 }
-                if (result.Length < 5)
+                if (result.Length >= 5)
                 {
-                    var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+                    /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
                     var db = new SQLiteConnection(databasePath);
                     db.Query<User>("UPDATE User SET pass = ? where DNI = ?", result,
-                    App.u.DNI);
+                    App.u.DNI);*/
+                    
+                    doUpdateAsync(result);
                 }
             }
             catch (System.NullReferenceException)
             {
+            }
+        }
+
+        private async Task doUpdateAsync(string result)
+        {
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                await FirebaseHelper.UpdatePass(App.u.DNI, result);
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                tokenSource2.Dispose();
             }
         }
     }

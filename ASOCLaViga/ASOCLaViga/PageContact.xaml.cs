@@ -17,10 +17,20 @@ namespace ASOCLaViga
         public PageContact()
         {
             InitializeComponent();
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             List<User> act = db.Query<User>("SELECT * FROM User where type = 1 ");
-            lw_Contact.ItemsSource = act;
+            lw_Contact.ItemsSource = act;*/
+            loadListAsync();
+        }
+
+        private async Task loadListAsync()
+        {
+            List<User> listUser = await FirebaseHelper.GetAllUsers();
+            var queryList = from us in listUser
+                            where (us.type == 1)
+                            select us;
+            lw_Contact.ItemsSource = queryList;
         }
     }
 }

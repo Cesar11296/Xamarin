@@ -17,13 +17,13 @@ namespace ASOCLaViga
         public PageGestionAct()
         {
             InitializeComponent();
-            LoadList();
+            LoadListAsync();
             lw_Act.SelectedItem = null;
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            LoadList();
+            LoadListAsync();
             lw_Act.SelectedItem = null;
         }
 
@@ -33,12 +33,15 @@ namespace ASOCLaViga
             OnAppearing();
         }
 
-        private void LoadList()
+        private async Task LoadListAsync()
         {
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
             var db = new SQLiteConnection(databasePath);
             Actividad act = (Actividad)this.BindingContext;
             List<Actividad> list = db.Query<Actividad>("SELECT * FROM actividad");
+            lw_Act.ItemsSource = list;*/
+            Actividad act = (Actividad)this.BindingContext;
+            List<Actividad> list = await FirebaseHelper.GetActivities();
             lw_Act.ItemsSource = list;
         }
 
@@ -62,16 +65,24 @@ namespace ASOCLaViga
                 }
                 else if (answer.Equals("Eliminar"))
                 {
-                    var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
+                    int id = ((Actividad)e.SelectedItem).ID;
+                    doDeleteAsync(id);
+                    /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
                     var db = new SQLiteConnection(databasePath);
                     db.Delete(e.SelectedItem);
-                    LoadList();
+                    LoadListAsync();*/
                 }
             }
             catch (SystemException ex)
             {
-                LoadList();
+                LoadListAsync();
             }
+        }
+
+        private async Task doDeleteAsync(int id)
+        {
+            await FirebaseHelper.DeleteActividad(id);
+            LoadListAsync();
         }
 
         private void bAdd_Clicked(object sender, EventArgs e)
