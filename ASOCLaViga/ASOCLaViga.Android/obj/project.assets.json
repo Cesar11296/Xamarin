@@ -6906,11 +6906,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.Android\\ASOCLaViga.Android.csproj",
+      "projectUniqueName": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga.Android\\ASOCLaViga.Android.csproj",
       "projectName": "ASOCLaViga.Android",
-      "projectPath": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.Android\\ASOCLaViga.Android.csproj",
+      "projectPath": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga.Android\\ASOCLaViga.Android.csproj",
       "packagesPath": "C:\\Users\\César\\.nuget\\packages\\",
-      "outputPath": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.Android\\obj\\",
+      "outputPath": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -6931,8 +6931,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {
-              "projectPath": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj"
+            "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {
+              "projectPath": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj"
             }
           }
         }

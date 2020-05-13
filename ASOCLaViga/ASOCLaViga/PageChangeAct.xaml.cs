@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -49,33 +50,33 @@ namespace ASOCLaViga
 
         private void bChange_Clicked(object sender, EventArgs e)
         {
-            /*decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-            var db = new SQLiteConnection(databasePath);
-            db.Query<Actividad>("UPDATE Actividad SET Titulo = ?, Lugar = ?, Descripccion = ?, Foto = ?, bus= ?, Precio = ?, Fecha = ?, Plazas = ? where ID = ?", entryTitulo.Text,
-            entryLugar.Text,
-            editorDescripcion.Text,
-            entryFoto.Text,
-            pickerBus.Title,
-            price,
-            fechaAct.Date,
-            entryPlazas.Text,
-            act.ID);
-            Navigation.PopModalAsync();*/
             doUpdateAsync();
         }
 
         private async Task doUpdateAsync()
         {
-            decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
-            await FirebaseHelper.UpdateActividad(Convert.ToInt32(act.ID), entryTitulo.Text, entryLugar.Text,
-            editorDescripcion.Text,
-            entryFoto.Text,
-            pickerBus.Title,
-            price,
-            fechaAct.Date,
-            Convert.ToInt32(entryPlazas.Text));
-            Navigation.PopModalAsync();
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
+                await FirebaseHelper.UpdateActividad(Convert.ToInt32(act.ID), entryTitulo.Text, entryLugar.Text,
+                editorDescripcion.Text,
+                entryFoto.Text,
+                pickerBus.Title,
+                price,
+                fechaAct.Date,
+                Convert.ToInt32(entryPlazas.Text));
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                tokenSource2.Dispose();
+                Navigation.PopModalAsync();
+            }
         }
     }
 }

@@ -63,11 +63,6 @@ namespace ASOCLaViga
                 }
                 if (result.Length >= 5)
                 {
-                    /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-                    var db = new SQLiteConnection(databasePath);
-                    db.Query<User>("UPDATE User SET pass = ? where DNI = ?", result,
-                    App.u.DNI);*/
-                    
                     doUpdateAsync(result);
                 }
             }

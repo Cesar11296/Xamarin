@@ -52,7 +52,7 @@
                         <Label FontSize="24" 
                            VerticalOptions="Fill"
                            HorizontalOptions="Center"
-                           Grid.Row="2" Grid.Column="1">    
+                           Grid.Row="2" Grid.Column="1">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label"
                                  Binding="{Binding Source={Reference swPass}, Path=IsToggled}"

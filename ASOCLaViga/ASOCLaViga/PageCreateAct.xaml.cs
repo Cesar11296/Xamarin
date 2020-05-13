@@ -71,21 +71,6 @@ namespace ASOCLaViga
 
         private void bAdd_Clicked(object sender, EventArgs e)
         {
-            /*decimal price = Convert.ToDecimal(entryPrecio.Text, System.Globalization.CultureInfo.CurrentCulture);
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-            var db = new SQLiteConnection(databasePath);
-            db.Insert(new Actividad
-            {
-                Titulo = entryTitulo.Text,
-                Lugar = entryLugar.Text,
-                Descripccion = editorDescripcion.Text,
-                Foto = entryFoto.Text,
-                bus = pickerBus.Title,
-                Precio = price,
-                Fecha = fechaAct.Date,
-                Plazas = Int32.Parse(entryPlazas.Text)
-            });
-            Navigation.PopModalAsync();*/
             addValueAsync();
         }
 
@@ -104,6 +89,7 @@ namespace ASOCLaViga
             }
             finally
             {
+                tokenSource2.Dispose();
                 Navigation.PopModalAsync();
             }
         }

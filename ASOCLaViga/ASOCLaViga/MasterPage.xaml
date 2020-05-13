@@ -36,7 +36,7 @@
                           SeparatorVisibility="Default"  IsPullToRefreshEnabled="true">
                 <ListView.ItemsSource>
                     <x:Array x:Name="ArrayBarra" Type="{x:Type local:MasterPageItem}">
-                        <local:MasterPageItem Title="Actas" IconSource="icon_actas.png" TargetType="{x:Type local:PageActas}"/>
+                        <!--<local:MasterPageItem Title="Actas" IconSource="icon_actas.png" TargetType="{x:Type local:PageActas}"/>-->
                         <local:MasterPageItem Title="Actividades" IconSource="icon_act.png" TargetType="{x:Type local:PageAct}" />
                         <local:MasterPageItem Title="Contacto" IconSource="icon_contact.png" TargetType="{x:Type local:PageContact}" />
                         <local:MasterPageItem Title="Iniciar sesion" IconSource="icon_logout.png" TargetType="{x:Type local:PageLog}" />

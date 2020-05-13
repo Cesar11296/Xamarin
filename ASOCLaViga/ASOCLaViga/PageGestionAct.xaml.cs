@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -35,14 +36,22 @@ namespace ASOCLaViga
 
         private async Task LoadListAsync()
         {
-            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-            var db = new SQLiteConnection(databasePath);
-            Actividad act = (Actividad)this.BindingContext;
-            List<Actividad> list = db.Query<Actividad>("SELECT * FROM actividad");
-            lw_Act.ItemsSource = list;*/
-            Actividad act = (Actividad)this.BindingContext;
-            List<Actividad> list = await FirebaseHelper.GetActivities();
-            lw_Act.ItemsSource = list;
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                Actividad act = (Actividad)this.BindingContext;
+                List<Actividad> list = await FirebaseHelper.GetActivities();
+                lw_Act.ItemsSource = list;
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                tokenSource2.Dispose();
+            }
         }
 
         private void lw_Act_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -57,7 +66,7 @@ namespace ASOCLaViga
         {
             try
             {
-                string answer = await DisplayActionSheet("¿Qué desea hacer?", "Cancel", null, "Modificar", "Eliminar");
+                string answer = await DisplayActionSheet("¿Qué desea hacer?", "Cancel", null, "Modificar", "Ver usuarios", "Eliminar");
                 if (answer.Equals("Modificar"))
                 {
                     PageChangeAct p = new PageChangeAct((Actividad)e.SelectedItem);
@@ -67,10 +76,10 @@ namespace ASOCLaViga
                 {
                     int id = ((Actividad)e.SelectedItem).ID;
                     doDeleteAsync(id);
-                    /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-                    var db = new SQLiteConnection(databasePath);
-                    db.Delete(e.SelectedItem);
-                    LoadListAsync();*/
+                }
+                else if (answer.Equals("Ver usuarios"))
+                {
+                    Navigation.PushModalAsync(new PageShowUsers((Actividad)e.SelectedItem));
                 }
             }
             catch (SystemException ex)
@@ -81,8 +90,21 @@ namespace ASOCLaViga
 
         private async Task doDeleteAsync(int id)
         {
-            await FirebaseHelper.DeleteActividad(id);
-            LoadListAsync();
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                await FirebaseHelper.DeleteActividad(id);
+            }
+            catch (OperationCanceledException e)
+            {
+                Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+            }
+            finally
+            {
+                tokenSource2.Dispose();
+                LoadListAsync();
+            }
         }
 
         private void bAdd_Clicked(object sender, EventArgs e)

@@ -53,14 +53,6 @@ namespace ASOCLaViga
 
         private void bChange_Clicked(object sender, EventArgs e)
         {
-            /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-            var db = new SQLiteConnection(databasePath);
-            db.Query<User>("UPDATE User SET Name = ?, Apellido = ?, DNI = ?, type = ? where DNI = ?", entryName.Text,
-            entryApellidos.Text,
-            entryDNI.Text,
-            pickerType.Title,
-                usuario.DNI);
-            Navigation.PopModalAsync();*/
             doUpdateAsync();
 
         }
@@ -80,11 +72,7 @@ namespace ASOCLaViga
             CancellationToken ct = tokenSource2.Token;
             try
             {
-                await FirebaseHelper.UpdateUser(Convert.ToInt32(usuario.ID), entryName.Text,
-            entryApellidos.Text,
-            entryDNI.Text,
-            opt,
-                usuario.DNI);
+                await FirebaseHelper.UpdateUser(Convert.ToInt32(usuario.ID), entryName.Text, entryApellidos.Text, entryDNI.Text, opt, usuario.DNI);
             }
             catch (OperationCanceledException e)
             {
@@ -92,6 +80,7 @@ namespace ASOCLaViga
             }
             finally
             {
+                tokenSource2.Dispose();
                 Navigation.PopModalAsync();
             }
         }

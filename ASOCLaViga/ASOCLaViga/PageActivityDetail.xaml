@@ -18,11 +18,21 @@
             <StackLayout Orientation="Vertical">
                 <Image x:Name="imgPlayer" Source="{Binding Foto}" Aspect="AspectFit"/>
             </StackLayout>
-            <Frame VerticalOptions="CenterAndExpand" BackgroundColor="LightPink" CornerRadius="20">
+            <Frame VerticalOptions="CenterAndExpand" BackgroundColor="LightPink" CornerRadius="20" Margin="20,0,20,0">
                 <StackLayout>
-                    <Label x:Name="labelNombre" Text="{Binding Titulo}" TextColor="Purple" FontSize="Body"/>
-                    <Label x:Name="labelPosicion" Text="{Binding Lugar}" TextColor="Purple" FontSize="Body"/>
-                    <Label x:Name="labelPlaza" TextColor="Purple" FontSize="Body"/>
+                    <Label >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Titulo}" TextColor="Purple" FontAttributes="Bold"/>
+                                <Span Text=" " TextColor="Black" FontAttributes="Bold"/>
+                                <Span Text="{Binding Lugar}" TextColor="Purple" FontAttributes="None"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="{Binding Plazas, StringFormat='{}Plazas: {0}'}" TextColor="Purple" FontSize="Body"/>
+                    <Label Text="{Binding Descripccion}" TextColor="Purple" FontSize="Body" FontAttributes="Italic"/>
+                    <Label Text="{Binding Precio, StringFormat='{}Precio: {0} €'}" TextColor="Purple" FontSize="Body" FontAttributes="None"/>
+                    <Label Text="{Binding Fecha, StringFormat='{}Fecha: {0:dd-MM-yyyy}'}" TextColor="Purple" FontSize="Body" FontAttributes="None"/>
                 </StackLayout>
             </Frame>
             <Button Text="Apuntarse" Clicked="Button_Clicked"

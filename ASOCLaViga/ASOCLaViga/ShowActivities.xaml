@@ -27,9 +27,24 @@
                 <Frame BackgroundColor="LightBlue">
                     <ListView x:Name="lw_Act" SelectionMode="None">
                         <ListView.ItemTemplate>
-                            <DataTemplate x:Name="textoData">
-                                <TextCell Text="{Binding Titulo}"
-                                    Detail="{Binding Fecha, StringFormat='{}Fecha: {0:dd-MM-yyyy}'}"/>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Estado}" TextColor="Black" XAlign="End" FontAttributes="None"/>
+                                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Titulo}" TextColor="Black" FontAttributes="Bold"/>
+                                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Fecha, StringFormat='{}Fecha: {0:dd-MM-yyyy}'}" x:Name="labelLugar" TextColor="Gray" FontAttributes="Italic"/>
+                                        </Grid>
+                                    </ViewCell.View>
+                                </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

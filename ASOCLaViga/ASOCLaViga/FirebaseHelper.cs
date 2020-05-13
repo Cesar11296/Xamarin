@@ -47,7 +47,7 @@ namespace ASOCLaViga
             return allPersons.Last();
         }
 
-        public static async Task UpdateUser(int userId, string Name, string Apellido, string DNI, int type, string DNIOld )
+        public static async Task UpdateUser(int userId, string Name, string Apellido, string DNI, int type, string DNIOld)
         {
             var toUpdateUser = (await firebase
               .Child("User")
@@ -94,8 +94,9 @@ namespace ASOCLaViga
             var person = await GetId();
             await firebase
               .Child("User")
-              .PostAsync(new User() {
-                  ID = (person.ID+1),
+              .PostAsync(new User()
+              {
+                  ID = (person.ID + 2),
                   Name = name,
                   Apellido = apellido,
                   phone = "",
@@ -159,7 +160,8 @@ namespace ASOCLaViga
             await firebase
               .Child("Actividad")
               .Child(toUpdateActividad.Key)
-              .PutAsync(new Actividad() {
+              .PutAsync(new Actividad()
+              {
                   ID = actId,
                   Titulo = Titulo,
                   Lugar = Lugar,
@@ -172,6 +174,29 @@ namespace ASOCLaViga
               });
         }
 
+        public static async Task UpdateActividadPlazas(int Id)
+        {
+            var toUpdateActividad = (await firebase
+              .Child("Actividad")
+              .OnceAsync<Actividad>()).Where(a => a.Object.ID == Id).FirstOrDefault();
+
+            await firebase
+              .Child("Actividad")
+              .Child(toUpdateActividad.Key)
+              .PutAsync(new Actividad()
+              {
+                  ID = Id,
+                  Titulo = toUpdateActividad.Object.Titulo,
+                  Lugar = toUpdateActividad.Object.Lugar,
+                  Descripccion = toUpdateActividad.Object.Descripccion,
+                  Foto = toUpdateActividad.Object.Foto,
+                  bus = toUpdateActividad.Object.bus,
+                  Precio = toUpdateActividad.Object.Precio,
+                  Fecha = toUpdateActividad.Object.Fecha,
+                  Plazas = toUpdateActividad.Object.Plazas - 1
+              });
+        }
+
         public static async Task AddActividad(string Titulo, string Lugar, string Descripccion, string Foto, string bus, Decimal Precio, DateTime Fecha, int Plazas)
         {
             var actID = await GetIdAct();
@@ -179,7 +204,7 @@ namespace ASOCLaViga
               .Child("Actividad")
               .PostAsync(new Actividad()
               {
-                  ID = (actID.ID + 1),
+                  ID = (actID.ID + 2),
                   Titulo = Titulo,
                   Lugar = Lugar,
                   Descripccion = Descripccion,
@@ -208,17 +233,9 @@ namespace ASOCLaViga
               {
                   ID = item.Object.ID,
                   IDUser = item.Object.IDUser,
-                  IDAct = item.Object.IDAct
+                  IDAct = item.Object.IDAct,
+                  Estado = item.Object.Estado
               }).ToList();
-        }
-
-        public static async Task<Apuntado> GetApuntado()
-        {
-            var ap = await GetApuntados();
-            await firebase
-              .Child("Apuntado")
-              .OnceAsync<Apuntado>();
-            return ap.FirstOrDefault();
         }
 
         public static async Task<Apuntado> GetIdApuntado()
@@ -237,10 +254,38 @@ namespace ASOCLaViga
               .Child("Apuntado")
               .PostAsync(new Apuntado()
               {
-                  ID = (apuntadoID.ID + 1),
+                  ID = (apuntadoID.ID + 2),
                   IDAct = IDAct,
-                  IDUser = IDUser
+                  IDUser = IDUser,
+                  Estado = "No Pagado"
               });
+        }
+
+        public static async Task UpdateApuntado(int ID)
+        {
+            var toUpdateAp = (await firebase
+              .Child("Apuntado")
+              .OnceAsync<Apuntado>()).Where(a => a.Object.ID == ID).FirstOrDefault();
+
+            await firebase
+              .Child("Apuntado")
+              .Child(toUpdateAp.Key)
+              .PutAsync(new Apuntado()
+              {
+                  ID = toUpdateAp.Object.ID,
+                  IDAct = toUpdateAp.Object.IDAct,
+                  IDUser = toUpdateAp.Object.IDUser,
+                  Estado = "Pagado"
+              });
+        }
+
+        public static async Task DeleteApuntado(int ID)
+        {
+            var toDeleteActividad = (await firebase
+              .Child("Apuntado")
+              .OnceAsync<Apuntado>()).Where(a => a.Object.ID == ID).FirstOrDefault();
+            await firebase.Child("Apuntado").Child(toDeleteActividad.Key).DeleteAsync();
+
         }
     }
 }

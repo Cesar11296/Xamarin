@@ -36,16 +36,6 @@ namespace ASOCLaViga
                 {
                     opt = 0;
                 }
-                /*var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-                var db = new SQLiteConnection(databasePath);
-                db.Insert(new User
-                {
-                    Name = entryName.Text,
-                    Apellido = entryApellidos.Text,
-                    DNI = entryDNI.Text,
-                    pass = "12345",
-                    type = opt
-                });*/
                 doInsertAsync(opt);
                 
             }
@@ -65,6 +55,7 @@ namespace ASOCLaViga
             }
             finally
             {
+                tokenSource2.Dispose();
                 Navigation.PopModalAsync();
             }
         }

@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +15,6 @@ namespace ASOCLaViga
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        public SQLiteConnection db;
         private User u;
 
 
@@ -40,7 +38,7 @@ namespace ASOCLaViga
                     MasterPageItem x = new MasterPageItem();
                     x.Title = "Gestion";
                     x.IconSource = "icon_gestion.png";
-                    ArrayBarra.SetValue(x, 2);
+                    ArrayBarra.SetValue(x, 1);
 
                 }
                 else if (this.u.type == 0)
@@ -54,7 +52,7 @@ namespace ASOCLaViga
                 MasterPageItem m = new MasterPageItem();
                 m.Title = "Cerrar sesion";
                 m.IconSource = "icon_logout.png";
-                ArrayBarra.SetValue(m, 3);
+                ArrayBarra.SetValue(m, 2);
             }
         }
 
@@ -67,9 +65,9 @@ namespace ASOCLaViga
 
                 switch (op)
                 {
-                    case "Actas":
+                    /*case "Actas":
                         Navigation.PushModalAsync(new PageActas());
-                        break;
+                        break;*/
                     case "Actividades":
                         Navigation.PushModalAsync(new PageAct());
                         break;
@@ -102,7 +100,7 @@ namespace ASOCLaViga
                 labelTipoUser.Text = "";
                 u = null;
                 App.u = null;
-                Navigation.PushModalAsync(new MainPage());
+                await Navigation.PushModalAsync(new MainPage());
             }
         }
 

@@ -14,5 +14,6 @@ namespace ASOCLaViga
         public int IDUser { get; set; }
         [ForeignKey(typeof(Actividad))]
         public int IDAct { get; set; }
+        public string Estado { get; set; }
     }
 }

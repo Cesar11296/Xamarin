@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MySql.Data.MySqlClient;
 using System.Data;
 using System.Threading;
 
@@ -50,25 +49,6 @@ namespace ASOCLaViga
 
         private void bLogin_Clicked(object sender, EventArgs e)
         {
-            /*   var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bbddASOC.db");
-               var db = new SQLiteConnection(databasePath);
-               string[] values = new string[] { entryDNI.Text, entryPass.Text };
-               var list = db.Query<User>("SELECT DISTINCT * FROM user where DNI = ? and pass = ?", values);
-               foreach (User us in list)
-               {
-                   if (us.DNI == entryDNI.Text)
-                   {
-                       App.u = us;
-                       Navigation.PushModalAsync(new MainPage());
-                   }
-                   else if (us.DNI != entryDNI.Text)
-                   {
-                       var message = "Usuario incorrecto";
-                       DependencyService.Get<IMessage>().LongTime(message);
-                       entryDNI.Text = "";
-                       entryPass.Text = "";
-                   }
-               }*/
             queryUser();
             //https://www.c-sharpcorner.com/article/xamarin-forms-working-with-firebase-realtime-database-crud-operations/
             //https://xamarinmonkeys.blogspot.com/2019/01/xamarinforms-working-with-firebase.html
@@ -105,14 +85,11 @@ namespace ASOCLaViga
                 tokenSource2.Dispose();
                 Navigation.PushModalAsync(new MainPage());
             }
-            
         }
-
 
         private void swPass_Toggled(object sender, ToggledEventArgs e)
         {
             entryPass.IsPassword = !swPass.IsToggled;
         }
-
     }
 }

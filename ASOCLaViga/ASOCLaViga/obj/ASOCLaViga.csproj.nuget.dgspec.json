@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {}
+    "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {}
   },
   "projects": {
-    "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {
+    "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj",
+        "projectUniqueName": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj",
         "projectName": "ASOCLaViga",
-        "projectPath": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj",
+        "projectPath": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga.csproj",
         "packagesPath": "C:\\Users\\César\\.nuget\\packages\\",
-        "outputPath": "C:\\Xamarin\\ASOCLaViga\\ASOCLaViga\\ASOCLaViga\\obj\\",
+        "outputPath": "C:\\TFG\\Xamarin-master\\ASOCLaViga\\ASOCLaViga\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
