@@ -65,9 +65,9 @@ namespace ASOCLaViga
 
                 switch (op)
                 {
-                    /*case "Actas":
-                        Navigation.PushModalAsync(new PageActas());
-                        break;*/
+                    case "Acerca de ...":
+                        Navigation.PushModalAsync(new PageAcerca());
+                        break;
                     case "Actividades":
                         Navigation.PushModalAsync(new PageAct());
                         break;

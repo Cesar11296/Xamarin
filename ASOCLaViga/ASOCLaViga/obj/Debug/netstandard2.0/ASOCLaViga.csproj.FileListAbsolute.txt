@@ -38,12 +38,10 @@ C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\ASOCLaViga.
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageChangeAct.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageCreateAct.xaml.g.cs
 C:\Xamarin\ASOCLaViga\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp
-C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\ASOCLaViga.csprojAssemblyReference.cache
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\MasterPage.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageAct.xaml.g.cs
-C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActas.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActivity.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActivityBus.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageActivityDetail.xaml.g.cs
@@ -71,4 +69,8 @@ C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\ASOCLaViga.
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\ASOCLaViga.dll
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\ref\ASOCLaViga.dll
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\bin\Debug\netstandard2.0\ASOCLaViga.pdb
+C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PageAcerca.xaml.g.cs
 C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\XamlC.stamp
+C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\PrivacidadHTML.xaml.g.cs
+C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\TerminoHTML.xaml.g.cs
+C:\TFG\Xamarin-master\ASOCLaViga\ASOCLaViga\obj\Debug\netstandard2.0\ASOCLaViga.csprojAssemblyReference.cache

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:ASOCLaViga"
+             x:Class="ASOCLaViga.PageAcerca">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="Purple"/>
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Acerca de..."
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout HeightRequest="100"/>
+            <StackLayout BackgroundColor="MediumPurple">
+                <StackLayout HeightRequest="50"/>
+                <StackLayout Padding="20" Scale="1">
+                    <Button Text="TÉRMINOS Y CONDICIONES DE USO DE LA APP" Clicked="Button_Clicked"/>
+                    <Button Text="POLÍTICA DE PRIVACIDAD DE LA APP" Clicked="Button_Clicked_1"/>
+                    
+                    
+                </StackLayout>
+                <StackLayout HeightRequest="100"/>
+                <Label Text="App desarrollada por César Redondo Gómez" TextColor="White" FontSize="24" HorizontalTextAlignment="Center"/>
+                <StackLayout HeightRequest="50"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -10,6 +10,8 @@ namespace ASOCLaViga
 {
     public class FirebaseHelper
     {
+        //https://dzone.com/articles/xamarinforms-working-with-firebase-storage   --- Almacenamiento de archivos
+        //https://www.c-sharpcorner.com/article/xamarin-forms-working-with-firebase-storage/
         static FirebaseClient firebase = new FirebaseClient("https://asocviga.firebaseio.com/");
 
         public static async Task<List<User>> GetAllUsers()

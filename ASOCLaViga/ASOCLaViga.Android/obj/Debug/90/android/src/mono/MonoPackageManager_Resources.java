@@ -14,8 +14,6 @@ public class MonoPackageManager_Resources {
 		"MySql.Data.dll",
 		"Newtonsoft.Json.dll",
 		"Renci.SshNet.dll",
-		"Rg.Plugins.Popup.dll",
-		"Rg.Plugins.Popup.Droid.dll",
 		"SQLite-net.dll",
 		"SQLite.Net.dll",
 		"SQLite.Net.Platform.XamarinAndroid.dll",
@@ -78,5 +76,5 @@ public class MonoPackageManager_Resources {
 	};
 	public static String[] Dependencies = new String[]{
 	};
-	public static String ApiPackageName = "Mono.Android.Platform.ApiLevel_28";
+	public static String ApiPackageName = null;
 }

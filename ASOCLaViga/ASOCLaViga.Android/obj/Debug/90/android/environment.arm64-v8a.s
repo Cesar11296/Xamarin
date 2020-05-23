@@ -3,8 +3,8 @@
 	.section	.rodata..L.str.1,"aMS",@progbits,1
 	.type	.L.str.1, @object
 .L.str.1:
-	.asciz	"com.companyname.asoclaviga"
-	.size	.L.str.1, 27
+	.asciz	"com.asoclaviga"
+	.size	.L.str.1, 15
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	3
@@ -19,7 +19,7 @@ application_config:
 	/* is_a_bundled_app */
 	.byte	0
 	/* environment_variable_count */
-	.word	12
+	.word	10
 	/* system_property_count */
 	.word	0
 	.zero	4
@@ -48,53 +48,43 @@ mono_aot_mode_name:
 	.section	.rodata..L.str.5,"aMS",@progbits,1
 	.type	.L.str.5, @object
 .L.str.5:
-	.asciz	"MONO_LOG_LEVEL"
-	.size	.L.str.5, 15
+	.asciz	"XAMARIN_BUILD_ID"
+	.size	.L.str.5, 17
 	.section	.rodata..L.str.6,"aMS",@progbits,1
 	.type	.L.str.6, @object
 .L.str.6:
-	.asciz	"info"
-	.size	.L.str.6, 5
+	.asciz	"3de6c101-caa9-4172-9462-f6c8624ea5e2"
+	.size	.L.str.6, 37
 	.section	.rodata..L.str.7,"aMS",@progbits,1
 	.type	.L.str.7, @object
 .L.str.7:
-	.asciz	"XAMARIN_BUILD_ID"
-	.size	.L.str.7, 17
+	.asciz	"XA_HTTP_CLIENT_HANDLER_TYPE"
+	.size	.L.str.7, 28
 	.section	.rodata..L.str.8,"aMS",@progbits,1
 	.type	.L.str.8, @object
 .L.str.8:
-	.asciz	"3f245ed8-333b-4dbd-9896-9da87682d3ca"
-	.size	.L.str.8, 37
+	.asciz	"Xamarin.Android.Net.AndroidClientHandler"
+	.size	.L.str.8, 41
 	.section	.rodata..L.str.9,"aMS",@progbits,1
 	.type	.L.str.9, @object
 .L.str.9:
-	.asciz	"XA_HTTP_CLIENT_HANDLER_TYPE"
-	.size	.L.str.9, 28
+	.asciz	"XA_TLS_PROVIDER"
+	.size	.L.str.9, 16
 	.section	.rodata..L.str.10,"aMS",@progbits,1
 	.type	.L.str.10, @object
 .L.str.10:
-	.asciz	"Xamarin.Android.Net.AndroidClientHandler"
-	.size	.L.str.10, 41
+	.asciz	"btls"
+	.size	.L.str.10, 5
 	.section	.rodata..L.str.11,"aMS",@progbits,1
 	.type	.L.str.11, @object
 .L.str.11:
-	.asciz	"XA_TLS_PROVIDER"
-	.size	.L.str.11, 16
+	.asciz	"__XA_PACKAGE_NAMING_POLICY__"
+	.size	.L.str.11, 29
 	.section	.rodata..L.str.12,"aMS",@progbits,1
 	.type	.L.str.12, @object
 .L.str.12:
-	.asciz	"btls"
-	.size	.L.str.12, 5
-	.section	.rodata..L.str.13,"aMS",@progbits,1
-	.type	.L.str.13, @object
-.L.str.13:
-	.asciz	"__XA_PACKAGE_NAMING_POLICY__"
-	.size	.L.str.13, 29
-	.section	.rodata..L.str.14,"aMS",@progbits,1
-	.type	.L.str.14, @object
-.L.str.14:
 	.asciz	"LowercaseCrc64"
-	.size	.L.str.14, 15
+	.size	.L.str.12, 15
 	.section	.data.app_environment_variables,"aw",@progbits
 	.type	app_environment_variables, @object
 	.p2align	3
@@ -110,9 +100,7 @@ app_environment_variables:
 	.xword	.L.str.10
 	.xword	.L.str.11
 	.xword	.L.str.12
-	.xword	.L.str.13
-	.xword	.L.str.14
-	.size	app_environment_variables, 96
+	.size	app_environment_variables, 80
 	.section	.data.app_system_properties,"aw",@progbits
 	.type	app_system_properties, @object
 	.p2align	3

@@ -13,7 +13,6 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.145-pre" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
@@ -21,13 +20,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="PrivacidadHTML.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TerminoHTML.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PageAct.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="PageActas.xaml">
+    <EmbeddedResource Update="PageAcerca.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PageActivity.xaml">
@@ -87,10 +92,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resource\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Compile Update="TerminoHTML.xaml.cs">
+      <DependentUpon>TerminoHTML.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PageAcerca.xaml.cs">
+      <DependentUpon>PageAcerca.xaml</DependentUpon>
+    </Compile>
     <Compile Update="PageActivityDetail.xaml.cs">
       <DependentUpon>PageActivityDetail.xaml</DependentUpon>
     </Compile>
@@ -100,5 +107,9 @@
     <Compile Update="PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resource\" />
   </ItemGroup>
 </Project>
