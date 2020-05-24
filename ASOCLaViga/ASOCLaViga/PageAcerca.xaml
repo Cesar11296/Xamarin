@@ -25,8 +25,7 @@
                 <StackLayout Padding="20" Scale="1">
                     <Button Text="TÉRMINOS Y CONDICIONES DE USO DE LA APP" Clicked="Button_Clicked"/>
                     <Button Text="POLÍTICA DE PRIVACIDAD DE LA APP" Clicked="Button_Clicked_1"/>
-                    
-                    
+
                 </StackLayout>
                 <StackLayout HeightRequest="100"/>
                 <Label Text="App desarrollada por César Redondo Gómez" TextColor="White" FontSize="24" HorizontalTextAlignment="Center"/>

@@ -26,5 +26,6 @@ namespace ASOCLaViga
         {
             Navigation.PushModalAsync(new PrivacidadHTML());
         }
+
     }
 }
