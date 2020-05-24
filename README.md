@@ -1,4 +1,4 @@
-# Xamarin
+# App ASOCLaViga
 Aplicación desarrollada por César Redondo Gómez, para Asociación La Viga (Montemayor de Pililla).
 
 Este repositorio contiene el codigo fuente de la Aplicación desarrollada con Xamarin.Forms.
